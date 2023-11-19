@@ -6,11 +6,10 @@
 /*   By: acandela <acandela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 11:26:01 by acandela          #+#    #+#             */
-/*   Updated: 2023/11/19 12:05:33 by acandela         ###   ########.fr       */
+/*   Updated: 2023/11/19 12:32:43 by acandela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include <unistd.h>
 
 int	main(int argc, char **argv)
@@ -24,10 +23,8 @@ int	main(int argc, char **argv)
 	{
 		while (argv[argc - 1][i] == ' ' || argv[argc - 1][i] == 9)
 			i++;
-		// if (argv[argc - 1][i] == ' ' || argv[argc - 1][i] == 9)
-		// 	i++;
-		while (argv[argc - 1][i] != '\0' && argv[argc - 1][i] != ' ')
-                // && argv[argc - 1][i] == 9)
+		while (argv[argc - 1][i] != '\0' && argv[argc - 1][i] != ' '
+                && argv[argc - 1][i] != 9)
 		{
 			write(1, &argv[argc - 1][i], 1);
 			i++;
