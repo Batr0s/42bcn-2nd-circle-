@@ -1,33 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcspn.c                                       :+:      :+:    :+:   */
+/*   reverse_bits.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/20 19:11:18 by marvin            #+#    #+#             */
-/*   Updated: 2023/11/20 19:11:18 by marvin           ###   ########.fr       */
+/*   Created: 2023/11/21 18:26:13 by marvin            #+#    #+#             */
+/*   Updated: 2023/11/21 18:26:13 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-size_t	ft_strcspn(const char *s, const char *reject)
+unsigned char reverse_bits(unsigned char octet)
 {
-    size_t i;
-    size_t j;
+    int i = 0;
+    unsigned char rev = 0;
 
-    i = 0;
-    while (s[i])
+    while (i < 8)
     {
-        j = 0;
-        while(reject[j])
-        {
-            if (s[i] == reject[j])
-                return(i);
-            j++;
-        }
+        rev = rev*2 + (octet % 2);
+        octet /= 2;
         i++;
     }
-    return (i);
+    return (rev);
 }

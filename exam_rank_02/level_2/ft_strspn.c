@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcspn.c                                       :+:      :+:    :+:   */
+/*   ft_strspn.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/20 19:11:18 by marvin            #+#    #+#             */
-/*   Updated: 2023/11/20 19:11:18 by marvin           ###   ########.fr       */
+/*   Created: 2023/11/21 11:45:37 by marvin            #+#    #+#             */
+/*   Updated: 2023/11/21 11:45:37 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-size_t	ft_strcspn(const char *s, const char *reject)
+size_t	ft_strspn(const char *s, const char *accept)
 {
     size_t i;
     size_t j;
@@ -21,12 +21,14 @@ size_t	ft_strcspn(const char *s, const char *reject)
     while (s[i])
     {
         j = 0;
-        while(reject[j])
+        while (accept[j])
         {
-            if (s[i] == reject[j])
-                return(i);
+            if (accept[j] == s[i])
+                break;
             j++;
         }
+        if (accept[j] == '\0')
+            return (i);
         i++;
     }
     return (i);

@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcspn.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/20 19:11:18 by marvin            #+#    #+#             */
-/*   Updated: 2023/11/20 19:11:18 by marvin           ###   ########.fr       */
+/*   Created: 2023/11/21 10:53:01 by marvin            #+#    #+#             */
+/*   Updated: 2023/11/21 10:53:01 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include <stdlib.h>
 
-size_t	ft_strcspn(const char *s, const char *reject)
+char *ft_strdup(char *src)
 {
-    size_t i;
-    size_t j;
+    int i;
+    char *newstr;
 
     i = 0;
-    while (s[i])
-    {
-        j = 0;
-        while(reject[j])
-        {
-            if (s[i] == reject[j])
-                return(i);
-            j++;
-        }
+    while (src[i])
         i++;
-    }
-    return (i);
+    newstr = malloc(i + 1);
+    if (newstr == NULL)
+        return (NULL);
+    i = -1;
+    while (src[++i])
+        newstr[i] = src[i];
+    newstr[i] = '\0';
+    return (newstr);
 }

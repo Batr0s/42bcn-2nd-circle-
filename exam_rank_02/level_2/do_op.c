@@ -38,6 +38,3 @@ int main(int ac, char **av)
     printf("\n");
     return (0);
 }
-
-// 2147483647
-// -2147483648

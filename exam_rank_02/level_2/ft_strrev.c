@@ -1,33 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcspn.c                                       :+:      :+:    :+:   */
+/*   ft_strrev.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/20 19:11:18 by marvin            #+#    #+#             */
-/*   Updated: 2023/11/20 19:11:18 by marvin           ###   ########.fr       */
+/*   Created: 2023/11/21 11:10:20 by marvin            #+#    #+#             */
+/*   Updated: 2023/11/21 11:10:20 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-
-size_t	ft_strcspn(const char *s, const char *reject)
+char *ft_strrev(char *str)
 {
-    size_t i;
-    size_t j;
+    char pivot;
+    int i;
+    int j;
 
     i = 0;
-    while (s[i])
-    {
-        j = 0;
-        while(reject[j])
-        {
-            if (s[i] == reject[j])
-                return(i);
-            j++;
-        }
+    j = -1;
+    while (str[i])
         i++;
+    while (++j < --i)
+    {
+        pivot = str[j];
+        str[j] = str[i];
+        str[i] = pivot;
     }
-    return (i);
+    return (str);
 }

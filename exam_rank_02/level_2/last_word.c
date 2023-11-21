@@ -1,33 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcspn.c                                       :+:      :+:    :+:   */
+/*   last_word.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/20 19:11:18 by marvin            #+#    #+#             */
-/*   Updated: 2023/11/20 19:11:18 by marvin           ###   ########.fr       */
+/*   Created: 2023/11/21 15:11:03 by marvin            #+#    #+#             */
+/*   Updated: 2023/11/21 15:11:03 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include <unistd.h>
 
-size_t	ft_strcspn(const char *s, const char *reject)
+
+void last_word(char *str)
 {
-    size_t i;
-    size_t j;
+	int	j = 0;
+	int i = 0;
 
-    i = 0;
-    while (s[i])
-    {
-        j = 0;
-        while(reject[j])
-        {
-            if (s[i] == reject[j])
-                return(i);
-            j++;
-        }
-        i++;
-    }
-    return (i);
+	while (str[i])
+	{
+		if (str[i] == ' ' && str[i + 1] >= 33 && str[i + 1] <= 126)
+			j = i + 1;
+		i++;
+	}
+	while (str[j] >= 33 && str[j] <= 127)
+	{
+		write(1, &str[j], 1);
+		j++;
+	}
+}
+
+int main(int ac, char **av)
+{
+    if (ac == 2)
+        last_word(av[1]);
+    write(1, "\n", 1);
+    return (0);
 }

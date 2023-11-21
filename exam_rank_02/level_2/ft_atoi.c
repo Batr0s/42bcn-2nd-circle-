@@ -10,9 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
-
 int ft_atoi(char *str)
 {
     int num;
@@ -34,11 +31,4 @@ int ft_atoi(char *str)
         i++;
     }
     return(signo * num);
-}
-
-int main(void)
-{
-    char *num = "2147483647";
-    printf("Mio:      %d\n", ft_atoi(num));
-    printf("Original: %d", atoi(num));
 }
